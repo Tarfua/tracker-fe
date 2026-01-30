@@ -65,3 +65,20 @@ export function dayMonthToIso(day: number, monthIndex: number, today?: Date): st
   const d = String(clampedDay).padStart(2, "0");
   return `${year}-${m}-${d}`;
 }
+
+export function isoToFullDate(iso: string): { day: number; monthIndex: number; year: number } {
+  const parts = iso.split("-").map(Number);
+  const year = parts[0] ?? new Date().getFullYear();
+  const monthIndex = Math.max(0, Math.min(11, (parts[1] ?? 1) - 1));
+  const day = parts[2] ?? 1;
+  return { day, monthIndex, year };
+}
+
+export function fullDateToIso(day: number, monthIndex: number, year: number): string {
+  const clampedMonth = Math.max(0, Math.min(11, monthIndex));
+  const maxDay = getDaysInMonth(clampedMonth, year);
+  const clampedDay = Math.max(1, Math.min(maxDay, day));
+  const m = String(clampedMonth + 1).padStart(2, "0");
+  const d = String(clampedDay).padStart(2, "0");
+  return `${year}-${m}-${d}`;
+}
