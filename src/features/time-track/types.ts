@@ -5,6 +5,7 @@ export interface ProjectOption {
 
 export interface QuickTrackFormValues {
   projectId: string;
+  trackingDate: string;
   durationHours: number;
   description: string;
 }

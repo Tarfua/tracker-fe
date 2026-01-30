@@ -3,14 +3,17 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ProjectSelect } from "./ProjectSelect";
+import { TrackingDateField } from "./TrackingDateField";
 import { DurationInput } from "./DurationInput";
 import { DescriptionField } from "./DescriptionField";
 import { MOCK_PROJECTS } from "./mock-projects";
 import { partsToDuration } from "../constants";
+import { getTodayISO } from "../utils/date";
 import type { QuickTrackFormValues } from "../types";
 
 const initialValues: QuickTrackFormValues = {
   projectId: "",
+  trackingDate: getTodayISO(),
   durationHours: partsToDuration(0, 30),
   description: "",
 };
@@ -35,6 +38,12 @@ export function QuickTrackForm() {
           setValues((prev) => ({ ...prev, projectId }))
         }
         projects={MOCK_PROJECTS}
+      />
+      <TrackingDateField
+        value={values.trackingDate}
+        onChange={(trackingDate) =>
+          setValues((prev) => ({ ...prev, trackingDate }))
+        }
       />
       <DurationInput
         value={values.durationHours}
