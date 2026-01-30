@@ -11,6 +11,9 @@
   --accent-foreground: #fffefb;
   --input-bg: #fffefb;
   --focus-ring: #7d9d8a;
+  --danger: #b07d7d;
+  --danger-hover: #9a6b6b;
+  --danger-foreground: #fffefb;
 }
 
 @theme inline {
@@ -24,6 +27,9 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-input-bg: var(--input-bg);
   --color-focus-ring: var(--focus-ring);
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
+  --color-danger-foreground: var(--danger-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
